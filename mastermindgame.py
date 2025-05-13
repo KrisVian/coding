@@ -1,6 +1,6 @@
 import random
 
-COLOURS = ["Red", "Blue", "Orange", "Yellow", "Cyan", "Green", "Black", "White", "Pink"]
+COLOURS = ["Red", "Blue", "Orange", "Yellow", "Cyan", "Green", "Black", "White"]
 TRIES = 10
 CODE_LENGTH = 3
 
