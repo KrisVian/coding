@@ -1,6 +1,6 @@
 import random
 
-COLORS = ["R", "B", "O", "Y", "C", "G"]
+COLOURS = ["Red", "Blue", "Orange", "Yellow", "Cyan", "Green", "Black", "White", "Pink"]
 TRIES = 10
 CODE_LENGTH = 3
 
@@ -9,8 +9,8 @@ def generate_code():
 
 
     for _ in range(CODE_LENGTH):
-        color = random.choice(COLORS)
-        code.append(color)
+        colour = random.choice(COLOURS)
+        code.append(colour)
 
     return code
 
@@ -20,12 +20,12 @@ def guess_code():
         guess = input("Guess: ").upper().split(" ")
 
         if len(guess) != CODE_LENGTH:
-            print(f"You must guess {CODE_LENGTH} colors.")
+            print(f"You must guess {CODE_LENGTH} colours.")
             continue
 
-        for color in guess:
-            if color not in COLORS:
-                print(f"Invalid color: {color}. Try again.")
+        for colour in guess:
+            if colour not in COLOURS:
+                print(f"Invalid colour: {colour}. Try again.")
                 break
         else:
             break
@@ -33,31 +33,31 @@ def guess_code():
     return guess
 
 def check_code(guess, real_code):
-    color_counts = {}
+    colour_counts = {}
     correct_pos = 0
     incorrect_pos = 0
 
-    for color in real_code:
-        if color not in color_counts:
-            color_counts[color] = 0
-        color_counts[color] += 1
+    for colour in real_code:
+        if colour not in colour_counts:
+            colour_counts[colour] = 0
+        colour_counts[colour] += 1
 
-    for guess_color, real_color in zip(guess, real_code):
-        if guess_color == real_color:
+    for guess_colour, real_colour in zip(guess, real_code):
+        if guess_colour == real_color:
             correct_pos += 1
-            color_counts[guess_color] -= 1
+            colour_counts[guess_colour] -= 1
 
     
-    for guess_color, real_color in zip(guess, real_code):
-        if guess_color in color_counts and color_counts[guess_color] > 0:
+    for guess_colour, real_colour in zip(guess, real_code):
+        if guess_colour in colour_counts and colour_counts[guess_colour] > 0:
             incorrect_pos += 1
-            color_counts[guess_color] -= 1
+            colour_counts[guess_colour] -= 1
 
     return correct_pos, incorrect_pos
 
 def game():
     print(f"Welcome to mastermind, you have {TRIES} to guess the code.")
-    print("The valid colors are", *COLORS)
+    print("The valid colours are", *COLOURS)
 
     code = generate_code()
     for attempts in range(1, TRIES + 1):
