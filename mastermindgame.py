@@ -43,7 +43,7 @@ def check_code(guess, real_code):
         colour_counts[colour] += 1
 
     for guess_colour, real_colour in zip(guess, real_code):
-        if guess_colour == real_color:
+        if guess_colour == real_colour:
             correct_pos += 1
             colour_counts[guess_colour] -= 1
 
