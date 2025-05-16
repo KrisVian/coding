@@ -1,6 +1,6 @@
 import random
 
-COLOURS = ["R", "B", "O", "Y", "G", "WR"]
+COLOURS = ["R", "B", "O", "Y", "G", "W", "P"]
 TRIES = 10
 CODE_LENGTH = 3
 
